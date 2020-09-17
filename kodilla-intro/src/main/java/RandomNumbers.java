@@ -2,8 +2,8 @@ import java.util.Random;
 
 public class RandomNumbers {
     private int sumOfNumbers = 0;
-    private int lowestReturnedValue = 100;
-    private int highestReturnedValue = -100;
+    private int lowestReturnedValue = 32; // out of bounds value
+    private int highestReturnedValue = -1; // out of bounds value
 
     public void returnedNumberAfterReaching5000() {
         Random rand = new Random();
@@ -11,17 +11,16 @@ public class RandomNumbers {
         int highestValue = 31; // 31 because the second value for generating int is exclusive not inclusive
 
         while (sumOfNumbers < 5000) {
-            if (sumOfNumbers < 5000) {
 //                int number = rand.nextInt(highestValue - lowestValue) + lowestValue - highestValue;
                 int number = lowestValue +  (int)(Math.random()*(highestValue));
 
                 // lowest - to 100 jest po to, zeby przy pierwszym uruchomieniu przekazac juz warosc number / np tylko przy 1 iteracji
-                if (number <= lowestReturnedValue || lowestReturnedValue == 100) {
+                if (number <= lowestReturnedValue) {
                     lowestReturnedValue = number;
                 }
 
                 // highest - to 100 jest po to, zeby przy pierwszym uruchomieniu przekazac juz warosc number
-                if (number >= highestReturnedValue || lowestReturnedValue == 100) {
+                if (number >= highestReturnedValue) {
                     highestReturnedValue = number;
                 }
 
@@ -29,9 +28,7 @@ public class RandomNumbers {
 
                 sumOfNumbers += number;
                 continue;
-            } else {
-                break;
-            }
+
         }
         System.out.println("Sum of the numbers after reaching value 5000 is: " + sumOfNumbers);
     }
