@@ -1,5 +1,5 @@
 public class Calculator {
-    static final double PI = 3.1415927;
+
     static int counter = 0;
 
     public Calculator() {
@@ -17,10 +17,10 @@ public class Calculator {
     public double circleArea(double r) {
         String name = UserDialogs.getUserName();
         System.out.println("Hi, " + name + ". Thank you for using our software");
-        return PI * r * r;
+        return Math.PI * r * r;
     }
 
     public double circleParimeter(double r) {
-        return 2 * PI * r;
+        return 2 * Math.PI * r;
     }
 }
