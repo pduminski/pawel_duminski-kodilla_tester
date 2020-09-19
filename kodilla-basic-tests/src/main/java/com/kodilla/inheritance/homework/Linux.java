@@ -14,6 +14,6 @@ public class Linux extends OperatingSystem{
     @Override
     public void turnOff() {
         super.turnOff();
-        System.out.println("Linux " + getVersion());
+        System.out.println(" Linux " + getVersion());
     }
 }

@@ -14,6 +14,6 @@ public class Windows extends OperatingSystem {
     @Override
     public void turnOff() {
         super.turnOff();
-        System.out.println("Windows " + getVersion());
+        System.out.println(" Windows " + getVersion());
     }
 }
