@@ -1,5 +1,7 @@
 package com.kodilla.basic_assertion;
 
+import java.math.MathContext;
+
 public class Calculator {
 
     public int sum(int a, int b) {
@@ -11,7 +13,8 @@ public class Calculator {
     }
 
     public int squared(int a) {
-        return a * a;
+        return (int) Math.pow(a, 2);
+//        return a * a;
     }
 }
 
