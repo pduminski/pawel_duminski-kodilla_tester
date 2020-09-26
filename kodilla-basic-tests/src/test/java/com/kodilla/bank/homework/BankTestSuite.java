@@ -14,6 +14,6 @@ public class BankTestSuite {
         bank.addCashMachine(2000);
 
         CashMachine[] cashMachines = bank.returnCreatedCashMachines();
-        assertEquals(3, cashMachines);
+        assertEquals(3, cashMachines.length);
     }
 }
