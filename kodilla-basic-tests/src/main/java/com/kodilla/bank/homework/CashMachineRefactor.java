@@ -5,10 +5,14 @@ public class CashMachineRefactor {
     private int balance;
     private int numberOfTransactions;
     private int size;
+    private int withdrawals;
+    private int payIns;
 
     public CashMachineRefactor() {
         this.size = 0;
         this.balance = 0;
+        withdrawals = 0;
+        payIns = 0;
         this.numberOfTransactions = 0;
         this.transactions = new int[0];
     }
@@ -17,10 +21,24 @@ public class CashMachineRefactor {
         size++;
         int[] newTab = new int[this.size];
         System.arraycopy(transactions, 0, newTab, 0 , transactions.length);
-        newTab[this.size - 1] = transactionAmount;
-        balance += transactionAmount;
-        transactions = newTab;
-        numberOfTransactions++;
+        if (transactionAmount > 0) {
+            payIns++;
+            newTab[this.size - 1] = transactionAmount;              // ELIMINATE REPETITIONS
+            balance += transactionAmount;
+            transactions = newTab;
+            numberOfTransactions++;
+        } else if (transactionAmount < 0) {
+            withdrawals++;
+            newTab[this.size - 1] = transactionAmount;              // ELIMINATE REPETITIONS
+            balance += transactionAmount;
+            transactions = newTab;
+            numberOfTransactions++;
+        }                                                           // SHOULD WE ADD ELSE HERE?
+
+    }
+
+    public int[] getTransactions() {        // TODO ADD TO TESTS
+        return transactions;
     }
 
     public int returnBalance() {
@@ -31,5 +49,11 @@ public class CashMachineRefactor {
         return numberOfTransactions;
     }
 
+    public int getPayIns() {
+        return payIns;
+    }
 
+    public int getWithdrawals() {
+        return withdrawals;
+    }
 }

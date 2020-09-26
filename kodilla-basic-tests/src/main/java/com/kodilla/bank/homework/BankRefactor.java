@@ -4,6 +4,9 @@ public class BankRefactor {
     private CashMachineRefactor[] cashMachines;
     private int size;
     private int balanceFromAllCashMachines;
+    private int withdrawalsFromAllMachines;
+    private int payInsFromAllMachines;
+
 
     public BankRefactor() {
         this.size = 0;
@@ -26,7 +29,7 @@ public class BankRefactor {
     public int balanceFromAllCashMachines() {
         int sum = 0;
 
-        for(int i = 0; i < cashMachines.length; i++) {
+        for (int i = 0; i < cashMachines.length; i++) {
             sum += cashMachines[i].returnBalance();
         }
         this.balanceFromAllCashMachines = sum;
@@ -35,18 +38,66 @@ public class BankRefactor {
     }
 
     public int withdrawalsAmount() {
-        return -1;
+        int sum = 0;
+
+        for (int i = 0; i < cashMachines.length; i++) {
+            sum += cashMachines[i].getWithdrawals();
+        }
+        this.withdrawalsFromAllMachines = sum;
+
+        return this.withdrawalsFromAllMachines;
     }
 
     public int payInsAmount() {
-        return -1;
+        int sum = 0;
+
+        for (int i = 0; i < cashMachines.length; i++) {
+            sum += cashMachines[i].getPayIns();
+        }
+        this.payInsFromAllMachines = sum;
+
+        return this.payInsFromAllMachines;
     }
 
     public double averageWithdrawal() {
-        return -1.0;
+        int sum = 0;
+        int helper = 0;
+
+        if (cashMachines.length == 0) {
+            return 0;
+        }
+
+        for (int i = 0; i < cashMachines.length; i++) {
+            int[] transactions = cashMachines[i].getTransactions();
+            for (int j = 0; j < transactions.length; j++) {
+                if  (transactions[i] < 0) {
+                    sum += transactions[i];
+                    helper++;
+                }
+            }
+        }
+
+        return sum / helper;
     }
 
     public double averagePayIn() {
-        return -1;
+        int sum = 0;
+        int helper = 0;
+
+        if (cashMachines.length == 0) {
+            return 0;
+        }
+
+        for (int i = 0; i < cashMachines.length; i++) {
+            int[] transactions = cashMachines[i].getTransactions();
+            for (int j = 0; j < transactions.length; j++) {
+                if  (transactions[i] > 0) {
+                    sum += transactions[i];
+                    helper++;
+                }
+            }
+        }
+
+        return sum / helper;
     }
 }

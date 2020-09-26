@@ -2,7 +2,6 @@ package com.kodilla.bank.homework;
 
 import org.junit.jupiter.api.Test;
 
-import static com.kodilla.basic_assertion.ResultChecker.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BankRefactorTestSuite {
@@ -12,7 +11,6 @@ public class BankRefactorTestSuite {
         bank.addCashMachine(new CashMachineRefactor());
         bank.addCashMachine(new CashMachineRefactor());
 
-        CashMachineRefactor[] cashMachines;
         assertEquals(2, bank.getCashMachines().length);
     }
 
@@ -20,7 +18,6 @@ public class BankRefactorTestSuite {
     public void shouldReturnCorrectAmountIfNoCashMachineIsAdded() {
         BankRefactor bank = new BankRefactor();
 
-        CashMachineRefactor[] cashMachines;
         assertEquals(0, bank.getCashMachines().length);
     }
 
@@ -94,6 +91,21 @@ public class BankRefactorTestSuite {
 
         CashMachineRefactor[] cashMachines = bank.getCashMachines();
         cashMachines[0].addTransaction(-500);
+        cashMachines[0].addTransaction(100);
+        cashMachines[1].addTransaction(200);
+        cashMachines[1].addTransaction(-300);
+
+        assertEquals(-400.00, bank.averageWithdrawal(), 0.01);
+    }
+
+    @Test
+    public void shouldReturnCorrectAverageWithdrawalBugWhenAllValuesNegative() {
+        BankRefactor bank = new BankRefactor();
+        bank.addCashMachine(new CashMachineRefactor());
+        bank.addCashMachine(new CashMachineRefactor());
+
+        CashMachineRefactor[] cashMachines = bank.getCashMachines();
+        cashMachines[0].addTransaction(-500);
         cashMachines[0].addTransaction(-100);
         cashMachines[1].addTransaction(-200);
         cashMachines[1].addTransaction(-200);
@@ -103,6 +115,21 @@ public class BankRefactorTestSuite {
 
     @Test
     public void shouldReturnCorrectAveragePayIn() {
+        BankRefactor bank = new BankRefactor();
+        bank.addCashMachine(new CashMachineRefactor());
+        bank.addCashMachine(new CashMachineRefactor());
+
+        CashMachineRefactor[] cashMachines = bank.getCashMachines();
+        cashMachines[0].addTransaction(-100);
+        cashMachines[0].addTransaction(200);
+        cashMachines[1].addTransaction(-300);
+        cashMachines[1].addTransaction(200);
+
+        assertEquals(200.00, bank.averagePayIn(), 0.01);
+    }
+
+    @Test
+    public void shouldReturnCorrectAveragePayInBugWhenAllValuesPositive() {
         BankRefactor bank = new BankRefactor();
         bank.addCashMachine(new CashMachineRefactor());
         bank.addCashMachine(new CashMachineRefactor());

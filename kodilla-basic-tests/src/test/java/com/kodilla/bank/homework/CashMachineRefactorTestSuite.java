@@ -38,4 +38,43 @@ public class CashMachineRefactorTestSuite {
 
         assertEquals(0, cashMachine.returnNumberOfTransactions());
     }
+
+    @Test
+    public void shouldReturnCorrectAmountOfWithdrawals() {
+        CashMachineRefactor cashMachine = new CashMachineRefactor();
+        cashMachine.addTransaction(100);
+        cashMachine.addTransaction(-300);
+        cashMachine.addTransaction(-200);
+
+        assertEquals(2, cashMachine.getWithdrawals());
+    }
+
+    @Test
+    public void shouldReturnZeroIfNoWithdrawalsWereDone() {
+        CashMachineRefactor cashMachine = new CashMachineRefactor();
+        cashMachine.addTransaction(100);
+        cashMachine.addTransaction(300);
+
+        assertEquals(0, cashMachine.getWithdrawals());
+    }
+
+    @Test
+    public void shouldReturnCorrectAmountOfPayIns() {
+        CashMachineRefactor cashMachine = new CashMachineRefactor();
+        cashMachine.addTransaction(100);
+        cashMachine.addTransaction(300);
+        cashMachine.addTransaction(200);
+
+        assertEquals(3, cashMachine.getPayIns());
+    }
+
+    @Test
+    public void shouldReturnZeroIfNoPayInsWereDone() {
+        CashMachineRefactor cashMachine = new CashMachineRefactor();
+        cashMachine.addTransaction(-100);
+        cashMachine.addTransaction(-300);
+
+        assertEquals(0, cashMachine.getPayIns());
+    }
+
 }
