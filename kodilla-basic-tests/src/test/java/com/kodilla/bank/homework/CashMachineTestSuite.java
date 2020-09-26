@@ -2,6 +2,8 @@ package com.kodilla.bank.homework;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.function.ToDoubleBiFunction;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CashMachineTestSuite {
@@ -52,9 +54,9 @@ public class CashMachineTestSuite {
         cashMachine.addTransaction(-300);
         cashMachine.addTransaction(-300);
 
-        assertEquals(200, cashMachine.returnBalance());
+        assertEquals(2, cashMachine.returnNumberOfTransactions()); // transaction is added anyway, this needs fixing - TODO
+        assertEquals(200, cashMachine.returnBalance()); // GOOD but thats not what we want. We want transaction to not be added
     }
-
 //    @Test
 //    public void countersForPayInWithdrawalAndIgnoreWork() {
 //        CashMachine cashMachine = new CashMachine(2000);

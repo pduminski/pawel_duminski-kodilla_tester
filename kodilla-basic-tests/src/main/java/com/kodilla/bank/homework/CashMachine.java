@@ -40,35 +40,9 @@ public class CashMachine {
             }
         }
         return balance;
-
-//        for (int i = 0; i < this.transactions.length; i++) {
-//            if (balance + transactions[i] < 0) {
-//                ignored++;
-//            } else {
-//                balance += transactions[i];
-//                if (transactions[i] > 0) {
-//                    payIns++;
-//                } else {
-//                    withdrawals++;
-//                }
-//            }
-//        }
-//        return balance;
     }
 
     public int returnNumberOfTransactions() {
         return this.transactions.length;
     }
-
-//    public int getWithdrawals() {
-//        return withdrawals;
-//    }
-//
-//    public int getPayIns() {
-//        return payIns;
-//    }
-//
-//    public int getIgnored() {
-//        return ignored;
-//    }
 }

@@ -4,16 +4,16 @@ public class ColorChoice {
         String chosenColor = "";
 
         switch (colorChoice) {
-            case "R" :
+            case "R":
                 chosenColor = "RED";
                 break;
-            case "G" :
+            case "G":
                 chosenColor = "GREEN";
                 break;
-            case "B" :
+            case "B":
                 chosenColor = "BLUE";
                 break;
-            case "Y" :
+            case "Y":
                 chosenColor = "YELLOW";
                 break;
             default:
@@ -21,8 +21,4 @@ public class ColorChoice {
         }
         return chosenColor;
     }
-
-
-
-
 }
