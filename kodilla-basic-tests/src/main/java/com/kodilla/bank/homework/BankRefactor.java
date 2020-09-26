@@ -3,9 +3,11 @@ package com.kodilla.bank.homework;
 public class BankRefactor {
     private CashMachineRefactor[] cashMachines;
     private int size;
+    private int balanceFromAllCashMachines;
 
     public BankRefactor() {
         this.size = 0;
+        this.balanceFromAllCashMachines = 0;
         cashMachines = new CashMachineRefactor[0];
     }
 
@@ -22,7 +24,14 @@ public class BankRefactor {
     }
 
     public int balanceFromAllCashMachines() {
-        return -1;
+        int sum = 0;
+
+        for(int i = 0; i < cashMachines.length; i++) {
+            sum += cashMachines[i].returnBalance();
+        }
+        this.balanceFromAllCashMachines = sum;
+
+        return balanceFromAllCashMachines;
     }
 
     public int withdrawalsAmount() {
@@ -34,7 +43,7 @@ public class BankRefactor {
     }
 
     public double averageWithdrawal() {
-        return -1;
+        return -1.0;
     }
 
     public double averagePayIn() {
