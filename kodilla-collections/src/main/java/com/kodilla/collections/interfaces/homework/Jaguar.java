@@ -13,8 +13,8 @@ public class Jaguar implements Car {
     }
 
     @Override
-    public void increaseSpeed() {
-        speed += 60;
+    public void increaseSpeed(int increaseAmount) {
+        this.speed += increaseAmount;
     }
 
     @Override

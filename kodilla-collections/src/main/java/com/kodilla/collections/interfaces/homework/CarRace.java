@@ -1,8 +1,5 @@
 package com.kodilla.collections.interfaces.homework;
 
-import com.kodilla.collections.interfaces.Shape;
-import com.kodilla.collections.interfaces.Square;
-
 public class CarRace {
     public static void main(String[] args) {
         Car car1 = new Jaguar();
@@ -15,9 +12,9 @@ public class CarRace {
 
     }
     private static void doRace(Car car) {
-        car.increaseSpeed();
-        car.increaseSpeed();
-        car.increaseSpeed();
+        car.increaseSpeed(100);
+        car.increaseSpeed(115);
+        car.increaseSpeed(110);
         car.decreaseSpeed();
         car.decreaseSpeed();
 
