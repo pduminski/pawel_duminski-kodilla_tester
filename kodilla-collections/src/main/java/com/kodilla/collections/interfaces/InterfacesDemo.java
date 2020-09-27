@@ -2,30 +2,17 @@ package com.kodilla.collections.interfaces;
 
 public class InterfacesDemo {
     public static void main(String[] args) {
-        Square square = new Square(10.00);
-        showSquareDetails(square);
+        Shape shape1 = new Square(10.00);
+        Shape shape2 = new Circle(7.00);
+        Shape shape3 = new Triangle(6.0, 4.0, 7.211);
 
-        Circle circle = new Circle(7.00);
-        showCircleDetails(circle);
-
-        Triangle triangle = new Triangle(6.0, 4.0, 7.211);
-        showTriangleDetails(triangle);
-
-
+        showShapeDetails(shape1);
+        showShapeDetails(shape2);
+        showShapeDetails(shape3);
     }
 
-    private static void showSquareDetails(Square square) {
-        System.out.println(square.getArea());
-        System.out.println(square.getPerimeter());
-    }
-
-    private static void showCircleDetails(Circle circle) {
-        System.out.println(circle.getArea());
-        System.out.println(circle.getPerimeter());
-    }
-
-    private static void showTriangleDetails(Triangle triangle) {
-        System.out.println(triangle.getArea());
-        System.out.println(triangle.getPerimeter());
+    private static void showShapeDetails(Shape shape) {
+        System.out.println(shape.getArea());
+        System.out.println(shape.getPerimeter());
     }
 }
