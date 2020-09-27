@@ -10,7 +10,6 @@ public class InterfacesDemo {
         showShapeDetails(shape2);
         showShapeDetails(shape3);
     }
-
     private static void showShapeDetails(Shape shape) {
         System.out.println(shape.getArea());
         System.out.println(shape.getPerimeter());
