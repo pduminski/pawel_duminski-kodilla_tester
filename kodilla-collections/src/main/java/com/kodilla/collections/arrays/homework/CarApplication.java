@@ -30,15 +30,15 @@ public class CarApplication {
         int randomSpeedIncrease = random.nextInt(50) + 30;
 
         if (chosenCar == 1) {
-            car1 = new Ford();
+            car1 = new Ford("Fiesta");
             car1.increaseSpeed(randomSpeedIncrease);
             return car1;
         } else if (chosenCar == 2) {
-            car2 = new Jaguar();
+            car2 = new Jaguar("XF");
             car2. increaseSpeed(randomSpeedIncrease);
             return car2;
         } else {
-            car3 = new Seat();
+            car3 = new Seat("Leon");
             car3.increaseSpeed(randomSpeedIncrease);
             return car3;
         }

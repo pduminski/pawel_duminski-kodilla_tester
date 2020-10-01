@@ -2,9 +2,9 @@ package com.kodilla.collections.interfaces.homework;
 
 public class CarRace {
     public static void main(String[] args) {
-        Car car1 = new Jaguar();
-        Car car2 = new Ford();
-        Car car3 = new Seat();
+        Car car1 = new Jaguar("XF");
+        Car car2 = new Ford("Fiesta");
+        Car car3 = new Seat("Leon");
 
         doRace(car1);
         doRace(car2);

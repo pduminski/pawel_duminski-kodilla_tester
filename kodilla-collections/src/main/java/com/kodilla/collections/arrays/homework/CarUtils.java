@@ -7,16 +7,16 @@ import com.kodilla.collections.interfaces.homework.Jaguar;
 public class CarUtils {
     public static void describeCar(Car car) {
         System.out.println("----------------------------");
-        System.out.println("Car manufacturer: " + getCarName(car));
+        System.out.println("Car manufacturer: " + getCarName(car) + ", model: " + car.getModel());
         System.out.println("Car speed: " + car.getSpeed());
     }
 
     public static String getCarName(Car car) {
         if (car instanceof Ford)
-            return "Ford Mustang";
+            return "Ford";
         else if (car instanceof Jaguar)
-            return "Jaguar XF";
+            return "Jaguar";
         else
-            return "Leon Cupra";
+            return "Seat";
     }
 }

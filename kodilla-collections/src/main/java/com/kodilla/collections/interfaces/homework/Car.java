@@ -4,4 +4,5 @@ public interface Car {
     int getSpeed();
     void increaseSpeed(int increaseAmount);
     void decreaseSpeed();
+    String getModel();
 }

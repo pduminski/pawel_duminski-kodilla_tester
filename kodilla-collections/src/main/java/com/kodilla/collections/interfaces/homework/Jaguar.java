@@ -2,9 +2,16 @@ package com.kodilla.collections.interfaces.homework;
 
 public class Jaguar implements Car {
     private int speed;
+    private String model;
 
-    public Jaguar() {
+    public Jaguar(String model) {
+        this.model = model;
         this.speed = 0;
+    }
+
+    @Override
+    public String getModel() {
+        return model;
     }
 
     @Override
