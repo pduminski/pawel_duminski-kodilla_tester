@@ -19,4 +19,15 @@ public class Grades {
             sum += grade;
         return sum / grades.size();
     }
+
+//    @Override
+//    public String toString() {
+//        return "Grades: " + grades.toString();
+//    }
+
+
+    @Override
+    public String toString() {
+        return "Grades: " + grades.toString();
+    }
 }
