@@ -9,7 +9,6 @@ public class Book {
 
     public static Book of(String author, String title) {
         Book book;
-
         return new Book(author, title);
     }
 }
