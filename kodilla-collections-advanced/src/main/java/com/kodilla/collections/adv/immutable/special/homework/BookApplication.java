@@ -1,6 +1,4 @@
-package com.kodilla.collections.immutable.special.homework;
-
-import java.lang.reflect.Field;
+package com.kodilla.collections.adv.immutable.special.homework;
 
 public class BookApplication {
     public static void main(String[] args) {

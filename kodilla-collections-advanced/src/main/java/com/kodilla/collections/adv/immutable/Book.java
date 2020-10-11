@@ -1,4 +1,4 @@
-package com.kodilla.collections.immutable;
+package com.kodilla.collections.adv.immutable;
 
 public class Book {
     protected final String author;
