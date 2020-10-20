@@ -2,6 +2,7 @@ package com.kodilla.collections.adv.exercises.homework;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FlightFinder {
 
@@ -21,5 +22,13 @@ public class FlightFinder {
                 flightsTo.add(flight);
         }
         return flightsTo;
+    }
+
+    public List<Flight> findFlightSteam(String departure) {
+        return FlightRepository
+                .getFlightsTable()
+                .stream()
+                .filter(u -> u.getDeparture().equals(departure))
+                .collect(Collectors.toList());
     }
 }
