@@ -5,7 +5,7 @@ public class ThirdExample {
         AirportRepository airportRepository = new AirportRepository();
         try {
             boolean isVienaInUse = airportRepository.isAirportInUse("Viena");
-            System.out.println("Viena status: " + isVienaInUse);
+            System.out.println("Vienna status: " + isVienaInUse);
         } catch (AirportNotFoundException e) {
             System.out.println("Sorry, the airport cannot be served by our airlines");
         } finally {
