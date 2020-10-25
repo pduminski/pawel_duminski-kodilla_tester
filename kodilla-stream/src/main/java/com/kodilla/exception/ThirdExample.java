@@ -11,6 +11,5 @@ public class ThirdExample {
         } finally {
             System.out.println("Thank you for using Kodilla airlines");
         }
-
     }
 }
