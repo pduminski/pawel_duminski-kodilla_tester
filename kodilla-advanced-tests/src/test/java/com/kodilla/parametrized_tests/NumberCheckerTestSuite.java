@@ -2,9 +2,10 @@ package com.kodilla.parametrized_tests;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class NumberCheckerTestSuite {
+public class NumberCheckerTestSuite {
 
     private NumberChecker numberChecker = new NumberChecker();
 
@@ -13,5 +14,4 @@ class NumberCheckerTestSuite {
         boolean result = numberChecker.isDivisibleByThree(3);
         assertTrue(result);
     }
-
 }
