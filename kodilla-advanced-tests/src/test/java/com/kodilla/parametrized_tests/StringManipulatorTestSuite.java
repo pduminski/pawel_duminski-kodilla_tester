@@ -1,6 +1,7 @@
 package com.kodilla.parametrized_tests;
 
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,6 +13,12 @@ class StringManipulatorTestSuite {
     @ParameterizedTest
     @CsvSource(value = {"test, tset", "OtHEr, rehto", "EVent,tneve", "null,llun", "A,a"})
     public void shouldReverseStringWithLowercase(String input, String expected) {
+        assertEquals(expected, manipulator.reverseWithLowerCase(input));
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/stringWithLowerCase.csv", numLinesToSkip = 1)
+    public void shouldReverseStringWithLowercaseFromFile(String input, String expected) {
         assertEquals(expected, manipulator.reverseWithLowerCase(input));
     }
 

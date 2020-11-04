@@ -18,7 +18,6 @@ public class ShapeApplication {
         }
         for (Shape shape : shapes)
             ShapeUtils.displayShapeInfo(shape);
-
     }
 
     private static Shape drawShape() {
