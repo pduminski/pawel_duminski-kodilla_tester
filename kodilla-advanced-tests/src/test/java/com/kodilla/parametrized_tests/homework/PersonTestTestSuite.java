@@ -14,5 +14,4 @@ class PersonTestTestSuite {
         Person person = new Person(heightInMeters, weightInKilograms);
         assertEquals(expected, person.getBMI());
     }
-
 }
