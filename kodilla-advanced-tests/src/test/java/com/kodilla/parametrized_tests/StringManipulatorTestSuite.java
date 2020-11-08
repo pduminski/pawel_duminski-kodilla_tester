@@ -1,8 +1,15 @@
 package com.kodilla.parametrized_tests;
 
+import com.sun.tools.javac.comp.Todo;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.function.ToDoubleBiFunction;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,4 +40,27 @@ class StringManipulatorTestSuite {
     public void shouldCountNumberOfComas(String input, int expected) {
         assertEquals(expected, manipulator.countNumberOfComas(input));
     }
+
+    @ParameterizedTest
+    @MethodSource(value = "provideStringForTestingLength")
+    public void shouldCalculateStringLengthWithoutSpaces_usingMethodSource(String input, int expected) {
+        assertEquals(expected, manipulator.getStringLengthWithoutSpaces(input));
+    }
+
+    @ParameterizedTest
+    @MethodSource(value = "com.kodilla.parametrized_tests.StringSources#provideStringsForTestingLength")
+    public void shouldCalculateStringLengthWithoutSpaces_test(String input, int expected) {
+        assertEquals(expected, manipulator.getStringLengthWithoutSpaces(input));
+    }
+
+    private static Stream<Arguments> provideStringForTestingLength() {
+        return Stream.of(
+                Arguments.of("test", 4),
+                Arguments.of("OtHEr", 5),
+                Arguments.of("E V e n t", 5),
+                Arguments.of("null", 4),
+                Arguments.of("A", 1)
+        );
+    }
+
 }

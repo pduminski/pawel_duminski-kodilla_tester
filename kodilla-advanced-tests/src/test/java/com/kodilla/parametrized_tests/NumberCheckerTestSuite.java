@@ -24,4 +24,5 @@ public class NumberCheckerTestSuite {
         boolean result = numberChecker.isDivisibleByThree(number);
         assertFalse(result);
     }
+
 }

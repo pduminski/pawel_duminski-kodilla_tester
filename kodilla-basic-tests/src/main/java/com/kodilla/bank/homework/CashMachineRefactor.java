@@ -37,7 +37,7 @@ public class CashMachineRefactor {
 
     }
 
-    public int[] getTransactions() {        // TODO ADD TO TESTS
+    public int[] getTransactions() {
         return transactions;
     }
 
