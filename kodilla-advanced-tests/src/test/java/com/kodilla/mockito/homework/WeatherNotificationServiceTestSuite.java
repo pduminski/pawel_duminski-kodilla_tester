@@ -1,49 +1,53 @@
 package com.kodilla.mockito.homework;
 
-import com.kodilla.mockito.Notification;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class WeatherNotificationServiceTestSuite {
 
     WeatherNotificationService notificationService = new WeatherNotificationService();
-    Subscriber subscriber1 = Mockito.mock(Subscriber.class);
-    Subscriber subscriber2 = Mockito.mock(Subscriber.class);
+    Subscriber subscriber = Mockito.mock(Subscriber.class);
     Location location1 = Mockito.mock(Location.class);
     Location location2 = Mockito.mock(Location.class);
-    WeatherNotification notification1 = Mockito.mock(WeatherNotification.class);
-    WeatherNotification notification2 = Mockito.mock(WeatherNotification.class);
+    WeatherNotification notification = Mockito.mock(WeatherNotification.class);
 
     @Test
     public void subscriberShouldGetWeatherNotificationForGivenLocation() {
-        // add two subscribers to notificationService
-        notificationService.addSubscriber(subscriber1);
-        notificationService.addSubscriber(subscriber2);
-        // add two locations to notificationService
-        notificationService.addLocation(location1);
-        notificationService.addLocation(location2);
-        // connect subscribers to different locations
-        notificationService.addSubscriberToGivenLocation(location1, subscriber1);
-        notificationService.addSubscriberToGivenLocation(location2, subscriber2);
-        // send different notification for every location
-        notificationService.sendNotificationForLocation(notification1, location1);
-        notificationService.sendNotificationForLocation(notification2, location2);
+        // subscribe user to location
+        notificationService.addSubscriberToGivenLocation(location1, subscriber);
+        // send notification to subscribers of the location
+        notificationService.sendNotificationForLocation(notification, location1);
 
-        Mockito.verify(subscriber1, Mockito.times(1)).receiveWeatherNotification(notification1);
-        Mockito.verify(subscriber2, Mockito.times(1)).receiveWeatherNotification(notification2);
+        System.out.println(notificationService.getMap());
+        Mockito.verify(subscriber, Mockito.times(1)).receiveWeatherNotification(notification);
     }
 
     @Test
     public void subscriberCanUnsubscribeFromGivenLocation() {
+        // subscribe user to different locations
+        notificationService.addSubscriberToGivenLocation(location1, subscriber);
+        notificationService.addSubscriberToGivenLocation(location2, subscriber);
+        // unsubscribe user from given location
+        notificationService.removeSubscriberFromGivenLocation(location2, subscriber);
+        // send weather notifications
+        notificationService.sendAllWeatherNotifications(notification);
 
+        Mockito.verify(subscriber, Mockito.times(1)).receiveWeatherNotification(notification);
+        // TODO if we want to check numberOfInvocations before and after subscription is deleted we will receive '3'
     }
 
     @Test
     public void subscriberCanUnsubscribeFromAllLocations() {
+        // subscribe user to different locations
+        notificationService.addSubscriberToGivenLocation(location1, subscriber);
+        notificationService.addSubscriberToGivenLocation(location2, subscriber);
+        // unsubscribe user from all locations TODO method which should do it doesn't work
+        notificationService.removeSubscriberFromGivenLocation(location2, subscriber);
+        notificationService.removeSubscriberFromGivenLocation(location1, subscriber);
+        // send weather notifications
+        notificationService.sendAllWeatherNotifications(notification);
 
+        Mockito.verify(subscriber, Mockito.never()).receiveWeatherNotification(notification);
     }
 
     @Test

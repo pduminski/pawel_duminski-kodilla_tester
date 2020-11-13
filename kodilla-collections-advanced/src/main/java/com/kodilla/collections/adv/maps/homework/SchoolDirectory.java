@@ -16,7 +16,7 @@ public class SchoolDirectory {
 
         schoolManagement.put(principalTom, schoolCopernicus);
         schoolManagement.put(principalGeorge, schoolJohnDoe);
-        schoolManagement.put(principalAlbert, schoolMinority);
+        schoolManagement.put(principalAlbert, schoolJohnDoe);
 
         for (Map.Entry<Principal, School> principalToSchool : schoolManagement.entrySet()) {
             System.out.println(principalToSchool.getKey() + " takes care of " +
