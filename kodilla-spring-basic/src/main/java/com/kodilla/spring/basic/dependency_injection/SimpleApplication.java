@@ -1,7 +1,6 @@
 package com.kodilla.spring.basic.dependency_injection;
 
 public class SimpleApplication {
-
     private MessageService messageService;
 
     public SimpleApplication(MessageService messageService) {
@@ -14,7 +13,7 @@ public class SimpleApplication {
         }
     }
 
-    public boolean checkReceiver(String receiver) {
-        return receiver != null  && !receiver.isEmpty();
+    private boolean checkReceiver(String receiver) {
+        return receiver != null && !receiver.isEmpty();
     }
 }
