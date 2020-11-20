@@ -2,16 +2,17 @@ plugins {
     id 'java'
 }
 
-version 'unspecified'
+group 'com.kodilla'
+version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
-test {
-    useJUnitPlatform()
-}
-
 repositories {
     mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
 }
 
 dependencies {
