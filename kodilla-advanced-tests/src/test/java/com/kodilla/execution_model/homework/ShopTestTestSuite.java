@@ -17,6 +17,13 @@ class ShopTestTestSuite {
     Order computer = new Order(5900.50, dateFormat.parse("10/11/2019"), "userTerra");
     Order xbox = new Order(999.99, dateFormat.parse("09/01/2018"), "xboxplayer");
 
+    @BeforeEach
+    public void initializeShop() {
+        shop.addOrder(games);
+        shop.addOrder(computer);
+        shop.addOrder(xbox);
+    }
+
     @Test
     public void shouldReturnCorrectAmountOfOrdersAfterCreatingNewOne() throws ParseException{
         // given 3 orders are present by default
@@ -65,13 +72,6 @@ class ShopTestTestSuite {
         // then expected set is correct with actual one
         assertEquals(expected, result);
 
-    }
-
-    @BeforeEach
-    public void initializeShop() {
-        shop.addOrder(games);
-        shop.addOrder(computer);
-        shop.addOrder(xbox);
     }
 
     ShopTestTestSuite() throws ParseException {

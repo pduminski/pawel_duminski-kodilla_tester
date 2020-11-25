@@ -35,9 +35,7 @@ public class Warehouse {
     }
 
     public Order getOrder(String number) throws OrderDoesntExistException {
-        if (orders.stream().filter(n -> n.getNumber().equals(number)).count() == 1)
-            return orders.stream().filter(n -> n.getNumber().equals(number)).findFirst().get();
-        throw new OrderDoesntExistException();
+        return orders.stream().filter(n -> n.getNumber().equals(number)).findFirst().orElseThrow(() -> new OrderDoesntExistException());
     }
 }
 
