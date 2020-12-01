@@ -28,6 +28,10 @@ public class DroneFinderCSS {
 
         WebElement submitButton = driver.findElement(By.cssSelector("form > button"));
         submitButton.click();
+
+        String name = driver.findElement(By.name("test")).toString();
+
+        System.out.println();
     }
 }
 

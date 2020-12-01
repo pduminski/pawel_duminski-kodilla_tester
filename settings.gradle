@@ -8,4 +8,6 @@ include 'com.kodilla.optional'
 include 'kodilla-advanced-tests'
 include 'kodilla-spring-basic'
 include 'kodilla-selenium'
+include 'kodilla-google-selenium'
+include 'kodilla-allegro-selenium'
 
