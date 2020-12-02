@@ -36,9 +36,9 @@ public class AllegroSearch extends AbstractPage {
         searchField.sendKeys(itemName);
         Select select = new Select(categorySelector);
         select.selectByValue(category);
-        // searchButton.click();
         allegroResults = loadResults(driver);
         allegroResults.iCanSeeResults();
+        allegroResults.goIntoRandomResult(driver);
     }
 
     public AllegroResults loadResults(WebDriver driver) {
@@ -47,6 +47,4 @@ public class AllegroSearch extends AbstractPage {
         AllegroResults allegroResults = new AllegroResults(driver);
         return allegroResults;
     }
-
-
 }

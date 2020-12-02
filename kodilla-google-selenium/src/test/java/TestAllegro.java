@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pagesAllegro.AllegroResults;
 import pagesAllegro.AllegroSearch;
 
 public class TestAllegro {
@@ -19,6 +20,8 @@ public class TestAllegro {
     public void allegroSearchTest() {
         AllegroSearch search = new AllegroSearch(driver);
         search.searchResults("Spalding", "/kategoria/sport-i-turystyka");
+        AllegroResults allegroResults = new AllegroResults(driver);
+        allegroResults.itemPageResult();
     }
 
     @After
